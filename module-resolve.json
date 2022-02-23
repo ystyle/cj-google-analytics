@@ -1,0 +1,14 @@
+{
+    "resolves": [
+        {
+            "organization": "ystyle",
+            "name": "GoogleAnalytics",
+            "path": "./",
+            "version": "1.0.0",
+            "hash": "WyJ5c3R5bGUiLCJHb29nbGVBbmFseXRpY3MiLCIvaG9tZS95c3R5bGUvQ29kZS9DYW5nSmllL2dvb2dsZS1hbmFseXRpY3MiLCIxLjAuMCJdH8odDDHybEdYy551OHQ3Eq9BXEI=",
+            "requires": [],
+            "packageRequires": {},
+            "foreign_requires": {}
+        }
+    ]
+}
