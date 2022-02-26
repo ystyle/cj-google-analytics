@@ -10,16 +10,16 @@ var secret:String = ""
 var measurement: String = ""
 var DEBUG:Bool = false
 
-external func Setkeys(apiSecret:String, apiMeasurement: String) {
+public func Setkeys(apiSecret:String, apiMeasurement: String) {
     secret = apiSecret
     measurement = apiMeasurement
 }
 
-external func Debug(debug: Bool) {
+public func Debug(debug: Bool) {
     DEBUG = debug
 }
 
-external class Payload <: Serializable<Payload> {
+public class Payload <: Serializable<Payload> {
     let ClientID:String
     var UserID:Option<String>
     var TimestampMicros:Option<Int64> = None
@@ -69,7 +69,7 @@ external class Payload <: Serializable<Payload> {
     }
 }
 
-external class Event <: Serializable<Event> {
+public class Event <: Serializable<Event> {
     var name:String
     var params:HashMap<String, String> = HashMap()
     init(name!:String, params!:HashMap<String, String>) {
