@@ -1,19 +1,16 @@
-# google-analytics
->Implement Measurement Protocol (Google Analytics 4)
+package google_analytics
 
-### 使用
+import std.collection.{HashMap,ArrayList}
+import std.process.CurrentProcess
 
-```toml
-[dependencies]
-  google_analytics = { git = "https://github.com/ystyle/cj-google-analytics", branch = "master"}
-```
+import std.unittest.*
+import std.unittest.testmacro.*
 
-### 示例
-```cj
-import google_analytics.*
-import std.collection.*
+@Test
+func TestSend():Unit {
+    let apiSecret:String = CurrentProcess.current.environment.get("API_SECRET") ?? ""
+    let apiMeasurement:String  = CurrentProcess.current.environment.get("API_MEASUREMENT") ?? ""
 
-func main() {
     let client = Client(apiSecret, apiMeasurement)
     client.debug(true)
 
@@ -31,4 +28,3 @@ func main() {
     )
     client.send(payload)
 }
-```

@@ -2,3 +2,6 @@
 .vscode
 build
 bin
+.cjpm-history
+.cache
+target
