@@ -3,9 +3,15 @@
 
 ### 使用
 
+1. beta channel版本在`cjpm.toml`里添加
 ```toml
 [dependencies]
-  google_analytics = { git = "https://github.com/ystyle/cj-google-analytics", branch = "master"}
+  sonyflake = { git = "https://github.com/ystyle/sonyflake-cj", branch = "0.53"}
+```
+2. dev channel版本在`cjpm.toml`里添加
+```toml
+[dependencies]
+  sonyflake = { git = "https://github.com/ystyle/cj-sonyflake", branch = "master"}
 ```
 
 ### 示例
