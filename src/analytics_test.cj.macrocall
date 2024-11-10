@@ -1,0 +1,71 @@
+package google_analytics
+
+import std.collection.{HashMap,ArrayList}
+import std.process.CurrentProcess
+
+import std.unittest.*
+import std.unittest.testmacro.*
+
+/* ===== Emitted by MacroCall @Test in analytics_test.cj:9:1 ===== */
+/* 9.1 */@Attribute[TEST_GENERATED] class TestCase_TestSend <: TestClass {
+/* 9.2 */    init() {
+/* 9.3 */    }
+/* 9.4 */    private func classConfiguration(): Configuration {
+/* 9.5 */        let configuration = Configuration()
+/* 9.6 */        
+/* 9.7 */        return configuration
+/* 9.8 */    }
+/* 9.9 */    public override func asTestSuite(): TestSuite {
+/* 9.10 */        
+/* 9.11 */        let suiteConfiguration = classConfiguration()
+/* 9.12 */        let suiteBuilder = TestSuite.builder("TestCase_TestSend").configure(suiteConfiguration)
+/* 9.13 */        let m___ = TimeNow()
+/* 9.14 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 9.15 */        
+/* 9.16 */        { => let caseConfig = Configuration()
+/* 9.17 */            
+/* 9.18 */            let TestSendTestFunc = { => TestSend();() }
+/* 9.19 */            suiteBuilder.add(
+/* 9.20 */            UnitTestCase.create(
+/* 9.21 */            "TestSend",
+/* 9.22 */            configuration: caseConfig,
+/* 9.23 */            body: TestSendTestFunc
+/* 9.24 */            )
+/* 9.25 */            )
+/* 9.26 */            
+/* 9.27 */        }()
+/* 9.28 */        
+/* 9.29 */        return suiteBuilder.build()
+/* 9.30 */    }
+/* 9.31 */}
+/* 9.32 */func TestSend(): Unit {
+/* 9.33 */    let apiSecret: String = CurrentProcess.current.environment.get("API_SECRET")??""
+/* 9.34 */    let apiMeasurement: String = CurrentProcess.current.environment.get("API_MEASUREMENT")??""
+/* 9.35 */    
+/* 9.36 */    let client = Client(apiSecret, apiMeasurement)
+/* 9.37 */    client.debug(true)
+/* 9.38 */    
+/* 9.39 */    let payload = Payload(
+/* 9.40 */    ClientID: "238df050-9472-11ec-bfa7-53c3f68f3dc2",
+/* 9.41 */    Events: ArrayList < Event >([
+/* 9.42 */    Event(
+/* 9.43 */    name: "cangjie",
+/* 9.44 */    params: HashMap < String, String >([
+/* 9.45 */    ("os", "Linux"),
+/* 9.46 */    ("arch", "amd64")
+/* 9.47 */    ])
+/* 9.48 */    )
+/* 9.49 */    ])
+/* 9.50 */    )
+/* 9.51 */    client.send(payload)
+/* 9.52 */}
+/* 9.53 */
+/* 9.54 */
+/* 9.55 */extend TestPackage {
+/* 9.56 */    @Attribute[TEST_REGISTER]
+/* 9.57 */    func registerTestCase_TestSend() {
+/* 9.58 */        registerSuite({ => TestCase_TestSend().asTestSuite() })
+/* 9.59 */    }
+/* 9.60 */}
+/* 9.61 */
+/* ===== End of the Emit ===== */

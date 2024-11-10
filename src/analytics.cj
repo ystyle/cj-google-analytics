@@ -30,7 +30,7 @@ public class Client {
         }
         if (!this._debug) {
             println("reponse: ${res.status} ${res.bodySize}")
-            var bs = Array<UInt8>(4096, repeat: 0)
+            var bs = Array<UInt8>(4096, item: 0)
             let length = res.body.read(bs)
             var s = String.fromUtf8(bs[..length])
             println(s)
